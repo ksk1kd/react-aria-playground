@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Button,
   Label,
@@ -6,12 +7,27 @@ import {
   Popover,
   Select,
   SelectValue,
+  ToggleButton,
 } from 'react-aria-components'
 
 function App() {
+  const [isSelected, setSelected] = useState(false)
+
   return (
     <>
       <div className="container">
+        <section className="mb-14">
+          <h1 className="text-4xl font-bold">Toggle Button</h1>
+          <ToggleButton
+            className={`my-4 py-2 px-4 rounded-md bg-gray-100 ${isSelected ? 'bg-green-600 text-white' : ''}`}
+            isSelected={isSelected}
+            onChange={setSelected}
+          >
+            Toggle Button
+          </ToggleButton>
+          <p>isSelected: {isSelected ? 'TRUE' : 'FALSE'}</p>
+        </section>
+
         <section>
           <h1 className="text-4xl font-bold">Select</h1>
           <Select className="my-4">
